@@ -29,7 +29,7 @@ export default class Login extends Component {
           if(res.status === 200){
             localStorage.setItem('token', res.data.token)
             localStorage.setItem('username',this.state.username)
-            //window.location.pathname = "/login/get_criminal"
+            window.location.pathname = "/login/get_criminal?username="+(this.state.username)
           }
           else {
             throw new Error()
@@ -37,8 +37,8 @@ export default class Login extends Component {
           
         })
         .catch((err) => {
-          console.log(err.response)
-          alert('Something Went Wrong, Try Login Again')
+          console.log(err)
+          alert('Something Went Wrong, Try Login Again!!!')
         })
     }
     render() {
