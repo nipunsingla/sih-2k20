@@ -47,6 +47,7 @@ router.get('/get_criminal',(req,res)=>{
    criminal.getCriminal(req.query.username,res)
 })
 router.get('/delete_criminal',(req,res)=>{
+  console.log(req.query.id)
   criminal.deleteCriminal(req.query.id,res);
 })
 

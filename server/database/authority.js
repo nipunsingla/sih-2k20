@@ -24,7 +24,7 @@ const login=(obj,res)=>{
                         "token":token,
                         "username":obj.username,
                         "email":obj.email,
-                        
+
                     }); 
                 }
                 else{
@@ -48,4 +48,4 @@ const logout=(obj,res)=>{
 const operation={
     login,logout
 }
-module.exports=operation
+module.exports={operation,firebaseadmin}
