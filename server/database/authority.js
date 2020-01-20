@@ -21,6 +21,8 @@ const login=(obj,res)=>{
                     var token=jwt.generateToken(obj.username)
                     authority.update({"token":token});
                     res.json({
+                        "token":token,
+                        "status":200,
                         "username":obj.username,
                         "email":obj.email
                     }); 
