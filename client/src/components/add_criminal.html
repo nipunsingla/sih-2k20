@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Criminal</title>
+</head>
+<body>
+    <div className="form">
+        <form action='/login/add_criminal' method="POST" className="formBody" encType="multipart/form-data">
+            <div>
+                <label>User Name: </label>
+                <input type="text" name="username" placeholder="username" onChange={this.handleInputChange} required></input> 
+            </div>
+            <div>
+                <label>Status: </label>
+                <input type="text" name="status" placeholder="Status of Criminal" onChange={this.handleInputChange} required></input>
+            </div>
+            <div>
+                <label>Name: </label>
+                <input type="text" name="name" placeholder="Name of Criminal" onChange={this.handleInputChange} required></input>
+            </div>
+            <div>
+                <label>Mark(if any): </label>
+                <input type="text" name="mark" placeholder="Identification Mark" onChange={this.handleInputChange} required></input>
+            </div>
+            <div>
+                <label>Image: </label>
+                <input type="file" name="file" id="" placeholder="image"></input>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

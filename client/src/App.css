@@ -44,3 +44,33 @@
 .formBody button{
   margin-top: 20px;
 }
+
+/*------Criminal List------------*/
+.CriminalCardSelf{
+  background: white;
+  text-align: center;
+  box-shadow: 10px 10px 8px #888888;
+  border-radius: 10px;
+  color:black;
+  font-weight: bold;
+  margin-bottom: 100px;
+  margin:auto;
+  width: 60%;
+}
+
+.CriminalCardSelf .show{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height:40%;
+  width:100%;
+  display: block;
+  position: absolute;
+
+}
+
+.criminalListBody{
+  background-color: lightgray;
+  overflow: hidden;
+  text-align: center;
+  height: 100vh;
+}

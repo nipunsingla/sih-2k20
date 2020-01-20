@@ -32,7 +32,7 @@ router.get('/',(req,res)=>{
   res.render('index');
 })
 router.post('/',(req,res)=>{
-  console.log(req.body)
+  //console.log(req.body)
   operation.login(req.body,res);
 })
 
@@ -43,8 +43,8 @@ router.get('/update_criminal',(req,res)=>{
 
 })
 router.get('/get_criminal',(req,res)=>{
- // console.log(req.body.name)
-   criminal.getCriminal(req.query.username,res)
+  console.log(req.query.username)
+  criminal.getCriminal(req.query.username,res)
 })
 router.get('/delete_criminal',(req,res)=>{
   console.log(req.query.id)
