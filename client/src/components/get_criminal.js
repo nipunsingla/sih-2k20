@@ -25,38 +25,37 @@ export default class get_criminal extends Component {
         })
     }
 
+    handleDelete = (id) =>{
+        axios.get('http://localhost:3001/login/delete_criminal?id='+id)
+        let temp = this.state.criminals.filter(criminal => id!=criminal.id)
+        this.setState({
+            criminals: temp
+        })
+    }
+
     render() {
         if(this.state.criminals.length === 0){
             return (
                 <React.Fragment></React.Fragment>
             )
 		}
-		
-		// const data = [], temp = this.state.criminals.data.map(role => role.members),
-		// temp2 = temp.forEach(members => {
-		// 	members.forEach(member => {
-		// 		data.push(member);
-		// 	});
-        // });
-        
-        //console.log(this.state.criminals)
 		const columns = this.state.criminals.map( (criminal, i) =>{
-            console.log(criminal)
 			return (
-				<Col l={4} m={4} s={12}>
+				<Col l={4} m={4} s={12} key={i}>
                 	<CriminalCard 
                         criminalName={criminal.name} 
                         criminalId={criminal.id} 
                         criminalStatus={criminal.status} 
                         criminalMark = {criminal.mark}
                         i= {i}
+                        handleDelete={this.handleDelete}
                     />
             	</Col>
 			)
 		})
 		
 		return (
-			<div className="confluTeamBody">
+			<div className="criminalListBody">
 				<center>	
 					<h1>Criminal List</h1>
 				</center>

@@ -1,18 +1,23 @@
 import React, { Component } from 'react'
+import {Button} from 'react-materialize'
 
-export default class criminalCard extends Component {
+export default class CriminalCard extends Component {
     render = () => {
-        const {criminalName, criminalId, criminalStatus, criminalMark, i} = this.props
+        const {criminalName, criminalId, criminalStatus, criminalMark} = this.props
         //console.log(this.props.criminalName)
         return (
-            <div className='card'>
-                <div className='show'></div>
-                <div className='card-content'>
-                    <h1>{criminalId}</h1>
-                    <h1> {criminalName} </h1>
-                    <h1>{criminalStatus}</h1>
-                    <h1>{criminalMark}</h1>
-                    <a href={"http://localhost:3001/login/delete_criminal?id="+criminalId}>Solved</a>
+            <div className='CriminalCardSelf'>
+                <div>
+                    <h4>ID : {criminalId}</h4>
+                    <h4>Name : {criminalName} </h4>
+                    <h4>Status: {criminalStatus}</h4>
+                    <h4>Mark: {criminalMark}</h4>
+                    <Button
+                        node="button"
+                        waves="light"
+                        onClick={this.props.handleDelete.bind(this, criminalId)}>
+                        DELETE
+                    </Button>
                 </div>
             </div>
         )
