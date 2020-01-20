@@ -20,7 +20,7 @@ const addCriminal = (obj, res) => {
                 res.json({ "status": "200", "data": doc })
             }
         })*/
-        authority.add(obj)
+        authority.doc(obj.id).set(obj)
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
         })
@@ -59,6 +59,8 @@ const getCriminal = (username, res) => {
     .then((query)=>{
         let results=[];
         query.forEach((doc)=>{
+
+            console.log(doc);
             results.push(doc.data())
         })
         res.json({"data":results});
@@ -67,6 +69,17 @@ const getCriminal = (username, res) => {
         res.json({"err":err});
     })
 }
+
+const deleteCriminal=(id,res)=>{
+    authority.where("id","==",id).get().then((query)=>{
+        query.forEach((doc)=>{
+            authority.doc(doc.data().id).delete();
+        })
+    })
+    .catch((err)=>{
+        res.json({"err":err});
+    })
+}
 module.exports = {
-    addCriminal, getCriminal
+    addCriminal, getCriminal,deleteCriminal
 }

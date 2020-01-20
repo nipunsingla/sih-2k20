@@ -39,9 +39,15 @@ router.post('/',(req,res)=>{
 router.get('/add_criminal',(req,res)=>{
     res.render('add_criminal',{username:req.body.username})
 })
+router.get('/update_criminal',(req,res)=>{
+
+})
 router.get('/get_criminal',(req,res)=>{
   console.log(req.query.username)
   criminal.getCriminal(req.query.username,res)
+})
+router.get('/delete_criminal',(req,res)=>{
+  criminal.deleteCriminal(req.query.id,res);
 })
 
 module.exports=router
