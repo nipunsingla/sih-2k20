@@ -40,8 +40,8 @@ router.get('/add_criminal',(req,res)=>{
     res.render('add_criminal',{username:req.body.username})
 })
 router.get('/get_criminal',(req,res)=>{
-  console.log(req.body.name)
-   criminal.getCriminal('abc',res)
+ // console.log(req.body.name)
+   criminal.getCriminal(req.query.username,res)
 })
 
 module.exports=router
