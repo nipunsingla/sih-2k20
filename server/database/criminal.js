@@ -24,12 +24,15 @@ const addCriminal=(obj,res)=>{
 }
 const getCriminal=(username,res)=>{
     console.log(username)
+    if(username==undefined){
+        return res.json({"msg":"no user is present login first"})
+    }
     authority=db.ref('/authority/'+username);
     authority.once('value',(snap)=>{
         
        var results=Object.keys(snap.val()).map((key)=>snap.val()[key])
         if(results){
-            res.json({"data":snap.val()})
+            res.json({"data":results})
         }
        else{
            res.json({"msg":"no records"})

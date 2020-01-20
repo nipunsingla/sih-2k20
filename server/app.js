@@ -9,9 +9,7 @@ app.use(bodyParser.json());
 app.use(cors);
 app.use(express.static('./public'));
 app.set('view engine','ejs')
-app.get('/',(req,res)=>{
-    res.render('index');
-})
+
 app.use('/login',require('./routes/authority'));
 
 

@@ -27,7 +27,9 @@ router.use(function(req, res, next) {
     }
   });
 router.post('/add_criminal',multer.single('file'),cloudStorageCtrl.upload);
-
+router.get('/',(req,res)=>{
+  res.render('index');
+})
 router.post('/',(req,res)=>{
     operation.login(req.body,res);
 })
@@ -36,7 +38,9 @@ router.get('/add_criminal',(req,res)=>{
     res.render('add_criminal',{username:req.body.username})
 })
 router.get('/get_criminal',(req,res)=>{
-    criminal.getCriminal('abc',res)
+  console.log(req.body.name)
+   criminal.getCriminal('abc',res)
+
 })
 
 module.exports=router

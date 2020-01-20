@@ -20,7 +20,10 @@ const login=(obj,res)=>{
                 if(snap.val().password==obj.password){
                     var token=jwt.generateToken(obj.username)
                     authority.update({"token":token});
-                    res.render('main.ejs',{username:obj.username,email:obj.email}); 
+                    res.json({
+                        "username":obj.username,
+                        "email":obj.email
+                    }); 
                     
                 }
                 else{
