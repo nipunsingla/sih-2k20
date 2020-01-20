@@ -13,29 +13,30 @@ var db=firebase.database();
 var authority=db.ref('authority')
 const login=(obj,res)=>{
     if(obj.username && obj.password && obj.email && obj.location){
-        console.log('body in object',obj)
+        console.log('body in object ',obj)
         authority=authority.child(obj.username)
         authority.once('value',(snap)=>{
             if(snap.val()){
                 if(snap.val().password==obj.password){
                     var token=jwt.generateToken(obj.username)
                     authority.update({"token":token});
-                    res.json({
+                    return res.status(200).json({
                         "token":token,
-                        "status":200,
                         "username":obj.username,
                         "email":obj.email
                     }); 
-                    
                 }
                 else{
-                    res.status(402).json({"msg":"incorrect password"});
+                    return res.status(402).json({"msg":"incorrect password"});
                 }
             }
             else{
-                res.json({"status":"402","msg":"id does not exist"})
+                return res.status(402).json({"msg":"id does not exist"})
             }
         })
+    }
+    else{
+        return res.status(402).json({"msg" : "  id not found"})
     }
 };
 const logout=(obj,res)=>{

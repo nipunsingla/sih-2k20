@@ -1,28 +1,35 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+import axios from './axios';
 
 export default class Login extends Component {
     state = {
-        name: '',
+        username: '',
         email: '',
         password: '',
         location: '',
         token: ''
     }
+    handleInputChange = (e) => {
+        this.setState({
+          [e.target.name] : e.target.value
+        })
+    } 
+    
     handleLoginSubmit = (e) =>{
         e.preventDefault();
+
         axios.post('login',{
-          name: this.state.name,
+          username: this.state.username,
           email: this.state.email,
           password: this.state.password,
           location: this.state.location
         })
         .then((res) => {
-          console.log(res)
+          console.log(res.status)
           if(res.status === 200){
             localStorage.setItem('token', res.data.token)
-            localStorage.setItem('code',this.state.code)
-            window.location.pathname = "/"
+            localStorage.setItem('username',this.state.username)
+            //window.location.pathname = "/login/get_criminal"
           }
           else {
             throw new Error()
@@ -40,19 +47,19 @@ export default class Login extends Component {
                 <form action='/login' method="POST" className="formBody">
                     <div>
                         <label>User Name: </label>
-                        <input type="text" name="username" placeholder="username" required></input>
+                        <input type="text" name="username" placeholder="username" onChange={this.handleInputChange} required></input> 
                     </div>
                     <div>
                         <label>Email: </label>
-                        <input type="email" name="email" placeholder="email" required></input>
+                        <input type="email" name="email" placeholder="email" onChange={this.handleInputChange} required></input>
                     </div>
                     <div>
                         <label>Password: </label>
-                        <input type="password" name="password" placeholder="password" required></input>
+                        <input type="password" name="password" placeholder="password" onChange={this.handleInputChange} required></input>
                     </div>
                     <div>
                         <label>Location: </label>
-                        <input type="text" name="location" placeholder="location" required></input>
+                        <input type="text" name="location" placeholder="location" onChange={this.handleInputChange} required></input>
                     </div>
                     <div>
                         <button onClick={(e) => this.handleLoginSubmit(e)}>Submit</button>

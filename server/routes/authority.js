@@ -11,27 +11,29 @@ const middle=require('../utils/middleware')
 var bucket = firebase.storage().bucket();
 
 router.use(function(req, res, next) {
-    if (!req.firebase) {
-      req.firebase = firebase;
-    }
-    if (!req.bucket) {
-      req.bucket = bucket;
-    }
-    next();
-  });
+  if (!req.firebase) {
+    req.firebase = firebase;
+  }
+  if (!req.bucket) {
+    req.bucket = bucket;
+  }
+  next();
+});
 
-  const multer = Multer({
-    storage: Multer.memoryStorage(),
-    limits: { 
-      fileSize: 100 * 1024 * 1024
-    }
-  });
+const multer = Multer({
+  storage: Multer.memoryStorage(),
+  limits: { 
+    fileSize: 100 * 1024 * 1024
+  }
+});
+
 router.post('/add_criminal',multer.single('file'),cloudStorageCtrl.upload);
 router.get('/',(req,res)=>{
   res.render('index');
 })
 router.post('/',(req,res)=>{
-    operation.login(req.body,res);
+  console.log(req.body)
+  operation.login(req.body,res);
 })
 
 router.get('/add_criminal',(req,res)=>{
@@ -40,7 +42,6 @@ router.get('/add_criminal',(req,res)=>{
 router.get('/get_criminal',(req,res)=>{
   console.log(req.body.name)
    criminal.getCriminal('abc',res)
-
 })
 
 module.exports=router
