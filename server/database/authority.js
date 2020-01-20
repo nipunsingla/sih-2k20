@@ -23,7 +23,8 @@ const login=(obj,res)=>{
                     return res.status(200).json({
                         "token":token,
                         "username":obj.username,
-                        "email":obj.email
+                        "email":obj.email,
+                        
                     }); 
                 }
                 else{

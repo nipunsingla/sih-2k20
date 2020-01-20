@@ -61,7 +61,7 @@ const getCriminal = (username, res) => {
         query.forEach((doc)=>{
             results.push(doc.data())
         })
-        res.json({"data":results[0]});
+        res.json({"data":results});
     })
     .catch((err)=>{
         res.json({"err":err});
