@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Redirect} from 'react-router-dom'
 import axios from './axios';
 
 export default class Login extends Component {
@@ -29,7 +30,7 @@ export default class Login extends Component {
           if(res.status === 200){
             localStorage.setItem('token', res.data.token)
             localStorage.setItem('username',this.state.username)
-            window.location.pathname = "/login/get_criminal?username="+(this.state.username)
+            window.location.pathname = "/login/get_criminal"
           }
           else {
             throw new Error()

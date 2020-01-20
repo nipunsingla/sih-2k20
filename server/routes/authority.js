@@ -32,7 +32,7 @@ router.get('/',(req,res)=>{
   res.render('index');
 })
 router.post('/',(req,res)=>{
-  console.log(req.body)
+  //console.log(req.body)
   operation.login(req.body,res);
 })
 
@@ -40,8 +40,8 @@ router.get('/add_criminal',(req,res)=>{
     res.render('add_criminal',{username:req.body.username})
 })
 router.get('/get_criminal',(req,res)=>{
- // console.log(req.body.name)
-   criminal.getCriminal(req.query.username,res)
+  console.log(req.query.username)
+  criminal.getCriminal(req.query.username,res)
 })
 
 module.exports=router

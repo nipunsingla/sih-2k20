@@ -12,12 +12,12 @@ var db=firebase.database();
 
 var authority=db.ref('authority')
 const login=(obj,res)=>{
-    console.log(obj.username, " ", obj.password, " ", obj.email, " ", obj.location)
+    //console.log(obj.username, " ", obj.password, " ", obj.email, " ", obj.location)
     if(obj.username && obj.password && obj.email && obj.location){
         authority=authority.child(obj.username)
         authority.once('value',(snap)=>{
             if(snap.val()){
-                console.log(obj.password, " ", snap.val().password)
+                //console.log(obj.password, " ", snap.val().password)
                 if(snap.val().password===obj.password){
                     
                     var token=jwt.generateToken(obj.username)
