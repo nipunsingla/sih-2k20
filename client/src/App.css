@@ -22,6 +22,18 @@
   font-size: 5vw;
 }
 
+.toLogin{
+  text-decoration: none;
+  color: black;
+  padding: 20px 50px;
+  position: absolute;
+  top:70%;
+  left: 37%;
+  width:20%;
+  text-align: center;
+  background-image: linear-gradient(to left, #A71D31, #3F0D12);
+}
+
 /*-------------LOGIN---------------*/
 .form{
   border: 3px solid black;
@@ -122,4 +134,31 @@
   overflow: hidden;
   text-align: center;
   height: 200vh;
+}
+
+.navHeader{
+  color:white;
+  display:grid;
+  grid-template-columns: 8fr 1fr;
+  background-image: linear-gradient(to left, #A71D31, #3F0D12);
+
+}
+
+.navHeader h1{
+  display: inline;
+}
+
+.navHeader button{
+  width: 80%;
+  height: 50%;
+  margin:auto;
+  background-color: black;
+  border:0;
+  color:white;
+  border-radius: 10px;
+}
+
+.navHeader button:hover{
+  background-color: red;
+  color:black;
 }

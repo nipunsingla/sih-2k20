@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import _Header from './header'
 /*
     {
      username: 
@@ -50,8 +51,6 @@ export default class add_criminal extends Component {
         .then((res) => {
             console.log(res.status)
             if(res.status === 200){
-                //localStorage.setItem('token', res.data.token)
-                //localStorage.setItem('username',this.state.username)
                 console.log(res.data.msg)
                 window.location.pathname = "/login/get_criminal"
             }
@@ -67,7 +66,10 @@ export default class add_criminal extends Component {
 
     render() {
         return (
+            <>
+            <_Header header="Add Criminals" />
             <div className="formBack">
+                
                 <div className="form">
                     <form method="POST" className="formBody" encType="multipart/form-data">
                         <div>
@@ -100,6 +102,7 @@ export default class add_criminal extends Component {
                     </form>
                 </div>
             </div>
+            </>
         )
     }
 }

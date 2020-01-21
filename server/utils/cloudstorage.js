@@ -44,5 +44,5 @@ exports.upload = (req, res) => {
   }
   data = JSON.parse(JSON.stringify(obj));
   criminal.addCriminal(obj, res);
- 
+  res.status(200).json({"msg":"successfully submitted"})
 };

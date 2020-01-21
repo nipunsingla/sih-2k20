@@ -121,7 +121,9 @@ export default class HomePage extends Component {
                     "retina_detect": false}}
                 />
 
-                <Link className="toLogin" to="/login">Welcome To StarGate</Link>
+                <div class="container">
+                    <Link className="toLogin" to="/login">Welcome To StarGate</Link>
+                </div>
             </div>
         )
     }

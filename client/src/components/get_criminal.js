@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import axios from './axios'
 import CriminalCard from './Cards/CriminalCard';
 import {Row,Container,Col} from 'react-materialize';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import _Header from './header';
 
 /*
  {
@@ -18,6 +19,7 @@ export default class get_criminal extends Component {
     state = {
         criminals: []
     }
+
     componentDidMount(){
         axios.get('http://localhost:3001/login/get_criminal?username=abc').then(res => {
             this.setState({
@@ -57,10 +59,10 @@ export default class get_criminal extends Component {
 		})
 		
 		return (
+            <>
+            <_Header header="Criminals List" />
 			<div className="criminalListBody">
-				<center>	
-					<h1>Criminal List</h1>
-				</center>
+				
 				<Container>
 					<Row>
 						{columns}
@@ -69,6 +71,7 @@ export default class get_criminal extends Component {
 
                 <Link to="/login/add_criminal" className="goToAdd">Add Criminals</Link>
 			</div>
+            </>
 		);
     }
 }

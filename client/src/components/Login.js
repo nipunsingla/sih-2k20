@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
 import axios from './axios';
+import _Header from './header'
 
 export default class Login extends Component {
     state = {
@@ -44,7 +45,10 @@ export default class Login extends Component {
     }
     render() {
         return (
+            <>
+            <_Header header="Login" />
             <div className="form">
+                
                 <form action='/login' method="POST" className="formBody">
                     <div>
                         <label>User Name: </label>
@@ -67,7 +71,7 @@ export default class Login extends Component {
                     </div>
                 </form>
             </div>
-
+            </>
         )
     }
 }

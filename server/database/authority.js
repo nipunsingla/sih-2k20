@@ -56,4 +56,4 @@ const operation={
     login,logout
 }
 
-module.exports={operation,firebaseadmin}
+module.exports={login,logout};
