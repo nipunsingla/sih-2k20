@@ -6,7 +6,7 @@ export default class HomePage extends Component {
     render() {
         return (
             <div className="_home">
-                <h1 className="_header">LOREM IPSUM</h1>
+                <h1 className="_header">Security Surveillance</h1>
       
                 <Particles 
                     className = "_particles"
@@ -122,7 +122,7 @@ export default class HomePage extends Component {
                 />
 
                 <div class="container">
-                    <Link className="toLogin" to="/login">Welcome To StarGate</Link>
+                    <Link className="toLogin" to="/login">GO FOR OUR PORTAL</Link>
                 </div>
             </div>
         )

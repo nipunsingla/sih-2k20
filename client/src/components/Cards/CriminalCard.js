@@ -26,11 +26,10 @@ export default class CriminalCard extends Component {
         
         let status;
         if(criminalStatus === "X")
-            status = {criminalStatus}
-        else {
-            status = (<a href={'https://regcheck.org.uk/api/reg.asmx?op=CheckIndia&RegistrationNumber='+criminalStatus+'&username=nipun'} 
-                         target="_blank">{criminalStatus}</a>)
-        }
+            status = '#'
+        else 
+            status = 'https://regcheck.org.uk/api/reg.asmx?op=CheckIndia&RegistrationNumber='+criminalStatus+'&username=nipun'
+            
         return (
             <div className='CriminalCardSelf'>
                 <div>
@@ -38,7 +37,7 @@ export default class CriminalCard extends Component {
                 </div>
                 <div className="criminalCardDetails">
                     <h4>Name : {criminalName} </h4>
-                    <h4>Status: <span className="criminalStatus">{criminalStatus}</span></h4>
+                    <h4>Status: <a href={status} target="_blank" className="criminalStatus">{criminalStatus}</a></h4>
                     <h4>Mark: {criminalMark}</h4>
                     <Button
                         node="button"
