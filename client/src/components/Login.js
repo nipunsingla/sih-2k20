@@ -48,7 +48,7 @@ export default class Login extends Component {
                 <form action='/login' method="POST" className="formBody">
                     <div>
                         <label>User Name: </label>
-                        <input type="text" name="username" placeholder="username" onChange={this.handleInputChange} required></input> 
+                        <input type="text" name="username" placeholder="username" onChange={(e)=>this.handleInputChange(e)} required></input> 
                     </div>
                     <div>
                         <label>Email: </label>
