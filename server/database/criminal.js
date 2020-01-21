@@ -73,11 +73,13 @@ const getCriminal = (username, res) => {
 const deleteCriminal=(id,res)=>{
     authority.where("id","==",id).get().then((query)=>{
         query.forEach((doc)=>{
+            console.log('deleted')
             authority.doc(doc.data().id).delete();
+            res.json({"msg":"deleted"})
         })
     })
     .catch((err)=>{
-        res.json({"err":err});
+        res.json({"msg":err});
     })
 }
 module.exports = {
