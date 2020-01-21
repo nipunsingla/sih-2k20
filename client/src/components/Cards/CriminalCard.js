@@ -8,7 +8,7 @@ export default class CriminalCard extends Component {
         return (
             <div className='CriminalCardSelf'>
                 <div>
-                    <h4>ID : {criminalId}</h4>
+                    <img src="https://via.placeholder.com/150"></img>
                     <h4>Name : {criminalName} </h4>
                     <h4>Status: {criminalStatus}</h4>
                     <h4>Mark: {criminalMark}</h4>

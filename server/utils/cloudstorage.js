@@ -1,6 +1,7 @@
 var criminal = require('../database/criminal')
 var shortid = require('shortid')
 exports.upload = (req, res) => {
+
   console.log("Req body is file", req.body);
   console.log("req file", req.file);
   let file = req.file;
@@ -32,6 +33,7 @@ exports.upload = (req, res) => {
   fileUpload.save(new Buffer(req.file.buffer)).then(
     result => {
       console.log("file uploaded sucessfully");
+      res.status(200).json({"msg":"successfully added"})
       //  res.status(200);
       //  res.json('file uploaded successfully');
     },
