@@ -11,8 +11,8 @@ var firebaseadmin = firebase.initializeApp({
 var db=firebase.database();
 
 var authority=db.ref('authority')
+
 const login=(obj,res)=>{
-    //console.log(obj.username, " ", obj.password, " ", obj.email, " ", obj.location)
     if(obj.username && obj.password && obj.email && obj.location){
         authority=authority.child(obj.username)
         authority.once('value',(snap)=>{
@@ -41,13 +41,19 @@ const login=(obj,res)=>{
     else{
         return res.status(402).json({"msg" : "  id not found"})
     }
+
 };
+
 const logout=(obj,res)=>{
+
     authority=authority.child(obj.username)
     authority.update({"token":""})
     res.json({"msg":"logged out"});
+
 }
+
 const operation={
     login,logout
 }
+
 module.exports={operation,firebaseadmin}
