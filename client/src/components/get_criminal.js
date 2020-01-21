@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from './axios'
 import CriminalCard from './Cards/CriminalCard';
 import {Row,Container,Col} from 'react-materialize';
+import {Link} from 'react-router-dom'
 
 /*
  {
@@ -47,6 +48,7 @@ export default class get_criminal extends Component {
                         criminalId={criminal.id} 
                         criminalStatus={criminal.status} 
                         criminalMark = {criminal.mark}
+                        imgUrl={criminal.url}
                         i= {i}
                         handleDelete={this.handleDelete}
                     />
@@ -64,6 +66,8 @@ export default class get_criminal extends Component {
 						{columns}
 					</Row>
 				</Container>
+
+                <Link to="/login/add_criminal" className="goToAdd">Add Criminals</Link>
 			</div>
 		);
     }

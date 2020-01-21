@@ -24,8 +24,11 @@
 
 /*-------------LOGIN---------------*/
 .form{
-  position: absolute;
-  border: 3px solid red;
+  border: 3px solid black;
+  border-radius: 30px;
+  margin: auto auto;
+  width:50vw;
+  margin-top: 8vw;
 }
 
 .formBody{
@@ -39,23 +42,69 @@
 .formBody label{
   display: block;
   margin-top: 30px;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .formBody button{
-  margin-top: 20px;
+  margin-top: 50px;
+  padding: 20px 40px;
+  border-radius: 30px;
+  border: 0;
+  font-size: 20px;
 }
 
 /*------Criminal List------------*/
 .CriminalCardSelf{
-  background: white;
+  background: black;
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   text-align: center;
-  box-shadow: 10px 10px 8px #888888;
-  border-radius: 10px;
-  color:black;
+  box-shadow: 10px 10px 8px #303030;
+  border-radius: 20px;
+  color:lightgray;
   font-weight: bold;
-  margin-bottom: 100px;
-  margin:auto;
+  margin:50px auto;
   width: 60%;
+}
+
+.criminalListBody .goToAdd{
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  background-color: red;
+  padding: 20px 50px;
+  margin-top:30px;
+  border-radius: 30px;
+}
+
+.criminalButton{
+  background-color: rgb(15, 192, 15);
+  font-size: 13px;
+  border: 0;
+  padding:1vw;
+  border-radius: 30px;
+  margin-bottom: 10%;
+}
+
+.criminalButton:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+
+.CriminalCardSelf img{
+  border-radius: 50%;
+  margin-top: 45px;
+}
+
+.CriminalCardSelf .criminalStatus{
+  color:red;
+}
+
+.criminalCardDetails{
+  text-align: left;
 }
 
 .CriminalCardSelf .show{
@@ -65,12 +114,12 @@
   width:100%;
   display: block;
   position: absolute;
-
 }
 
 .criminalListBody{
   background-color: lightgray;
+  background-image: linear-gradient(#28313B, #485461);
   overflow: hidden;
   text-align: center;
-  height: 100vh;
+  height: 200vh;
 }
